@@ -1,0 +1,514 @@
+{
+  "demos": [
+    {
+      "slug": "dciporto",
+      "name": "DCI Porto",
+      "url": "https://www.dciporto.pt/",
+      "http_status": 200,
+      "category": "Dental & Aesthetic Clinic",
+      "lang": "pt",
+      "avg_ticket_eur": 1200,
+      "booking_note": "Rua 5 de Outubro, 257, Porto",
+      "public_email": "atendimento@dciporto.pt",
+      "public_phone": "",
+      "services": [
+        "Próteses",
+        "Implantologia",
+        "Cirurgia",
+        "Endodontia",
+        "Estética Dental"
+      ],
+      "audit": {
+        "readiness_score": 35,
+        "has_schema_ld": false,
+        "has_real_llms_txt": false,
+        "has_whatsapp_link": false,
+        "has_ai_concierge": false,
+        "gaps": [
+          "Sem qualificação automática 24/7 (visitantes fora de horas ficam sem resposta imediata)",
+          "Sem dados estruturados Schema.org (JSON-LD) para Google e motores de IA",
+          "Sem ficheiro /llms.txt válido para visibilidade em ChatGPT/Perplexity"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "serviço",
+            "servicos",
+            "tratamento",
+            "tratamentos",
+            "especialidade",
+            "fazem",
+            "servicos"
+          ],
+          "q": "Que serviços / tratamentos oferecem?",
+          "a": "Na DCI Porto, disponibilizamos áreas como: Próteses, Implantologia, Cirurgia, Endodontia, Estética Dental. Posso ajudar a pré-qualificar o seu pedido para agendamento em Rua 5 de Outubro, 257, Porto."
+        },
+        {
+          "keywords": [
+            "preço",
+            "preco",
+            "preços",
+            "valor",
+            "custa",
+            "orçamento",
+            "orcamento",
+            "pagamento"
+          ],
+          "q": "Qual é o valor ou orçamento?",
+          "a": "O valor exato depende da avaliação inicial do seu caso. Posso recolher os seus dados em 30 segundos para que a equipa da DCI Porto envie uma estimativa ou agende avaliação."
+        },
+        {
+          "keywords": [
+            "marcar",
+            "marcação",
+            "consulta",
+            "agendar",
+            "reunião",
+            "horario",
+            "horário",
+            "disponibilidade"
+          ],
+          "q": "Como posso marcar consulta / reunião?",
+          "a": "Pode iniciar a pré-marcação aqui mesmo em 3 passos (24/7), indicando o serviço pretendido e o melhor horário, ou contactar diretamente (atendimento@dciporto.pt)."
+        },
+        {
+          "keywords": [
+            "onde",
+            "morada",
+            "localização",
+            "localizacao",
+            "contacto",
+            "telefone",
+            "email"
+          ],
+          "q": "Onde ficam localizados e contactos?",
+          "a": "DCI Porto atende em Rua 5 de Outubro, 257, Porto. Contacto público: atendimento@dciporto.pt."
+        }
+      ]
+    },
+    {
+      "slug": "iron",
+      "name": "Clínica IRON",
+      "url": "https://iron.pt/",
+      "http_status": 200,
+      "category": "Implantology & Aesthetic Dentistry",
+      "lang": "pt",
+      "avg_ticket_eur": 1500,
+      "booking_note": "Porto (junto à estação da Lapa)",
+      "public_email": "education@iron.pt",
+      "public_phone": "+351938733198",
+      "services": [
+        "CHECK UP DENTÁRIO",
+        "IMPLANTOLOGIA",
+        "REABILITAÇÃO ORAL ESTÉTICA",
+        "ORTODONTIA",
+        "ENDODONTIA"
+      ],
+      "audit": {
+        "readiness_score": 55,
+        "has_schema_ld": true,
+        "has_real_llms_txt": false,
+        "has_whatsapp_link": false,
+        "has_ai_concierge": false,
+        "gaps": [
+          "Sem qualificação automática 24/7 (visitantes fora de horas ficam sem resposta imediata)",
+          "Sem ficheiro /llms.txt válido para visibilidade em ChatGPT/Perplexity"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "serviço",
+            "servicos",
+            "tratamento",
+            "tratamentos",
+            "especialidade",
+            "fazem",
+            "servicos"
+          ],
+          "q": "Que serviços / tratamentos oferecem?",
+          "a": "Na Clínica IRON, disponibilizamos áreas como: CHECK UP DENTÁRIO, IMPLANTOLOGIA, REABILITAÇÃO ORAL ESTÉTICA, ORTODONTIA, ENDODONTIA. Posso ajudar a pré-qualificar o seu pedido para agendamento em Porto (junto à estação da Lapa)."
+        },
+        {
+          "keywords": [
+            "preço",
+            "preco",
+            "preços",
+            "valor",
+            "custa",
+            "orçamento",
+            "orcamento",
+            "pagamento"
+          ],
+          "q": "Qual é o valor ou orçamento?",
+          "a": "O valor exato depende da avaliação inicial do seu caso. Posso recolher os seus dados em 30 segundos para que a equipa da Clínica IRON envie uma estimativa ou agende avaliação."
+        },
+        {
+          "keywords": [
+            "marcar",
+            "marcação",
+            "consulta",
+            "agendar",
+            "reunião",
+            "horario",
+            "horário",
+            "disponibilidade"
+          ],
+          "q": "Como posso marcar consulta / reunião?",
+          "a": "Pode iniciar a pré-marcação aqui mesmo em 3 passos (24/7), indicando o serviço pretendido e o melhor horário, ou contactar diretamente (education@iron.pt)."
+        },
+        {
+          "keywords": [
+            "onde",
+            "morada",
+            "localização",
+            "localizacao",
+            "contacto",
+            "telefone",
+            "email"
+          ],
+          "q": "Onde ficam localizados e contactos?",
+          "a": "Clínica IRON atende em Porto (junto à estação da Lapa). Contacto público: education@iron.pt."
+        }
+      ]
+    },
+    {
+      "slug": "clinicamacro",
+      "name": "Clínica MACRO",
+      "url": "https://clinicamacro.pt/",
+      "http_status": 200,
+      "category": "Dental, Aesthetic & Hair Transplant Clinic",
+      "lang": "pt",
+      "avg_ticket_eur": 2200,
+      "booking_note": "Porto e Lisboa",
+      "public_email": "geral@clinicamacro.pt",
+      "public_phone": "+351225072760",
+      "services": [
+        "Implantologia Dentária",
+        "Oclusão e ATM",
+        "Facetas e Coroas Dentárias",
+        "Ortodontia",
+        "Endodontia"
+      ],
+      "audit": {
+        "readiness_score": 55,
+        "has_schema_ld": true,
+        "has_real_llms_txt": false,
+        "has_whatsapp_link": false,
+        "has_ai_concierge": false,
+        "gaps": [
+          "Sem qualificação automática 24/7 (visitantes fora de horas ficam sem resposta imediata)",
+          "Sem ficheiro /llms.txt válido para visibilidade em ChatGPT/Perplexity"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "serviço",
+            "servicos",
+            "tratamento",
+            "tratamentos",
+            "especialidade",
+            "fazem",
+            "servicos"
+          ],
+          "q": "Que serviços / tratamentos oferecem?",
+          "a": "Na Clínica MACRO, disponibilizamos áreas como: Implantologia Dentária, Oclusão e ATM, Facetas e Coroas Dentárias, Ortodontia, Endodontia. Posso ajudar a pré-qualificar o seu pedido para agendamento em Porto e Lisboa."
+        },
+        {
+          "keywords": [
+            "preço",
+            "preco",
+            "preços",
+            "valor",
+            "custa",
+            "orçamento",
+            "orcamento",
+            "pagamento"
+          ],
+          "q": "Qual é o valor ou orçamento?",
+          "a": "O valor exato depende da avaliação inicial do seu caso. Posso recolher os seus dados em 30 segundos para que a equipa da Clínica MACRO envie uma estimativa ou agende avaliação."
+        },
+        {
+          "keywords": [
+            "marcar",
+            "marcação",
+            "consulta",
+            "agendar",
+            "reunião",
+            "horario",
+            "horário",
+            "disponibilidade"
+          ],
+          "q": "Como posso marcar consulta / reunião?",
+          "a": "Pode iniciar a pré-marcação aqui mesmo em 3 passos (24/7), indicando o serviço pretendido e o melhor horário, ou contactar diretamente (geral@clinicamacro.pt)."
+        },
+        {
+          "keywords": [
+            "onde",
+            "morada",
+            "localização",
+            "localizacao",
+            "contacto",
+            "telefone",
+            "email"
+          ],
+          "q": "Onde ficam localizados e contactos?",
+          "a": "Clínica MACRO atende em Porto e Lisboa. Contacto público: geral@clinicamacro.pt."
+        }
+      ]
+    },
+    {
+      "slug": "sdadental",
+      "name": "SDA Dental Studio",
+      "url": "https://www.sdadentalstudio.co.uk/",
+      "http_status": 0,
+      "category": "Cosmetic & Implant Dentistry",
+      "lang": "en",
+      "avg_ticket_eur": 1800,
+      "booking_note": "Tower Hamlets / Canary Wharf, London",
+      "public_email": "",
+      "public_phone": "",
+      "services": [
+        "Dental Implants",
+        "Invisalign & Orthodontics",
+        "Teeth Whitening & Veneers",
+        "Emergency Consultation"
+      ],
+      "audit": {
+        "readiness_score": 35,
+        "has_schema_ld": false,
+        "has_real_llms_txt": false,
+        "has_whatsapp_link": false,
+        "has_ai_concierge": false,
+        "gaps": [
+          "No 24/7 automated lead qualifier (after-hours visitors leave uncaptured)",
+          "Missing Schema.org JSON-LD structured data for Google & AI engines",
+          "Missing valid /llms.txt for ChatGPT & Perplexity visibility"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "service",
+            "services",
+            "treatment",
+            "treatments",
+            "offer",
+            "do you do"
+          ],
+          "q": "What services / treatments do you offer?",
+          "a": "At SDA Dental Studio, core offerings include: Dental Implants, Invisalign & Orthodontics, Teeth Whitening & Veneers, Emergency Consultation. Tell me what you are looking for and I can pre-qualify your inquiry in 30 seconds."
+        },
+        {
+          "keywords": [
+            "price",
+            "pricing",
+            "cost",
+            "how much",
+            "quote",
+            "finance",
+            "fee"
+          ],
+          "q": "How much does it cost / payment options?",
+          "a": "Exact pricing depends on your initial assessment and scope. Leave your goals and contact details here and SDA Dental Studio will reply with tailored options."
+        },
+        {
+          "keywords": [
+            "book",
+            "appointment",
+            "consultation",
+            "schedule",
+            "call",
+            "availability"
+          ],
+          "q": "How can I book a consultation?",
+          "a": "You can submit a priority consultation request right here in 3 quick steps (24/7), or reach us via Tower Hamlets / Canary Wharf, London."
+        },
+        {
+          "keywords": [
+            "where",
+            "location",
+            "address",
+            "contact",
+            "phone",
+            "email"
+          ],
+          "q": "Where are you located?",
+          "a": "SDA Dental Studio serves clients at Tower Hamlets / Canary Wharf, London. Direct contact: Tower Hamlets / Canary Wharf, London."
+        }
+      ]
+    },
+    {
+      "slug": "wheelt",
+      "name": "Wheelt Agency",
+      "url": "https://www.wheelt.pt/",
+      "http_status": 200,
+      "category": "Web Design & Digital Agency",
+      "lang": "pt",
+      "avg_ticket_eur": 2500,
+      "booking_note": "Portugal (Partner White-Label Demo)",
+      "public_email": "geral@wheelt.pt",
+      "public_phone": "",
+      "services": [
+        "Website E-commerce B2C / B2B",
+        "Website Institucional",
+        "Website E-commerce B2B",
+        "Web Design",
+        "Ecommerce"
+      ],
+      "audit": {
+        "readiness_score": 75,
+        "has_schema_ld": true,
+        "has_real_llms_txt": true,
+        "has_whatsapp_link": false,
+        "has_ai_concierge": false,
+        "gaps": [
+          "Sem qualificação automática 24/7 (visitantes fora de horas ficam sem resposta imediata)"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "serviço",
+            "servicos",
+            "tratamento",
+            "tratamentos",
+            "especialidade",
+            "fazem",
+            "servicos"
+          ],
+          "q": "Que serviços / tratamentos oferecem?",
+          "a": "Na Wheelt Agency, disponibilizamos áreas como: Website E-commerce B2C / B2B, Website Institucional, Website E-commerce B2B, Web Design, Ecommerce. Posso ajudar a pré-qualificar o seu pedido para agendamento em Portugal (Partner White-Label Demo)."
+        },
+        {
+          "keywords": [
+            "preço",
+            "preco",
+            "preços",
+            "valor",
+            "custa",
+            "orçamento",
+            "orcamento",
+            "pagamento"
+          ],
+          "q": "Qual é o valor ou orçamento?",
+          "a": "O valor exato depende da avaliação inicial do seu caso. Posso recolher os seus dados em 30 segundos para que a equipa da Wheelt Agency envie uma estimativa ou agende avaliação."
+        },
+        {
+          "keywords": [
+            "marcar",
+            "marcação",
+            "consulta",
+            "agendar",
+            "reunião",
+            "horario",
+            "horário",
+            "disponibilidade"
+          ],
+          "q": "Como posso marcar consulta / reunião?",
+          "a": "Pode iniciar a pré-marcação aqui mesmo em 3 passos (24/7), indicando o serviço pretendido e o melhor horário, ou contactar diretamente (geral@wheelt.pt)."
+        },
+        {
+          "keywords": [
+            "onde",
+            "morada",
+            "localização",
+            "localizacao",
+            "contacto",
+            "telefone",
+            "email"
+          ],
+          "q": "Onde ficam localizados e contactos?",
+          "a": "Wheelt Agency atende em Portugal (Partner White-Label Demo). Contacto público: geral@wheelt.pt."
+        }
+      ]
+    },
+    {
+      "slug": "digiland",
+      "name": "Digiland",
+      "url": "https://digiland.pt/",
+      "http_status": 200,
+      "category": "Digital Marketing & Web Agency",
+      "lang": "pt",
+      "avg_ticket_eur": 2000,
+      "booking_note": "Portugal (Partner White-Label Demo)",
+      "public_email": "geral@digiland.pt",
+      "public_phone": "+351920649093",
+      "services": [
+        "Serviços de web design.",
+        "Criação de websites",
+        "Landing pages",
+        "Lojas online",
+        "Alojamento web"
+      ],
+      "audit": {
+        "readiness_score": 85,
+        "has_schema_ld": true,
+        "has_real_llms_txt": true,
+        "has_whatsapp_link": true,
+        "has_ai_concierge": false,
+        "gaps": [
+          "Sem qualificação automática 24/7 (visitantes fora de horas ficam sem resposta imediata)"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "serviço",
+            "servicos",
+            "tratamento",
+            "tratamentos",
+            "especialidade",
+            "fazem",
+            "servicos"
+          ],
+          "q": "Que serviços / tratamentos oferecem?",
+          "a": "Na Digiland, disponibilizamos áreas como: Serviços de web design., Criação de websites, Landing pages, Lojas online, Alojamento web. Posso ajudar a pré-qualificar o seu pedido para agendamento em Portugal (Partner White-Label Demo)."
+        },
+        {
+          "keywords": [
+            "preço",
+            "preco",
+            "preços",
+            "valor",
+            "custa",
+            "orçamento",
+            "orcamento",
+            "pagamento"
+          ],
+          "q": "Qual é o valor ou orçamento?",
+          "a": "O valor exato depende da avaliação inicial do seu caso. Posso recolher os seus dados em 30 segundos para que a equipa da Digiland envie uma estimativa ou agende avaliação."
+        },
+        {
+          "keywords": [
+            "marcar",
+            "marcação",
+            "consulta",
+            "agendar",
+            "reunião",
+            "horario",
+            "horário",
+            "disponibilidade"
+          ],
+          "q": "Como posso marcar consulta / reunião?",
+          "a": "Pode iniciar a pré-marcação aqui mesmo em 3 passos (24/7), indicando o serviço pretendido e o melhor horário, ou contactar diretamente (geral@digiland.pt)."
+        },
+        {
+          "keywords": [
+            "onde",
+            "morada",
+            "localização",
+            "localizacao",
+            "contacto",
+            "telefone",
+            "email"
+          ],
+          "q": "Onde ficam localizados e contactos?",
+          "a": "Digiland atende em Portugal (Partner White-Label Demo). Contacto público: geral@digiland.pt."
+        }
+      ]
+    }
+  ]
+}

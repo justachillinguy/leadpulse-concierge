@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "SDA Dental Studio",
+  "url": "https://www.sdadentalstudio.co.uk/",
+  "description": "SDA Dental Studio",
+  "areaServed": "Tower Hamlets / Canary Wharf, London",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Dental Implants"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Invisalign & Orthodontics"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Teeth Whitening & Veneers"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Emergency Consultation"
+      }
+    }
+  ]
+}

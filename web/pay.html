@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout &amp; Invoice Request — LeadPulse Concierge</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .pay-wrap { max-width: 760px; margin: 40px auto; padding: 0 20px; }
+    .banner-gate {
+      background: #fffbeb; border: 1px solid #fcd34d; color: #92400e;
+      padding: 12px 16px; border-radius: 12px; font-size: 13.5px; margin-bottom: 20px;
+    }
+    .plan-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .plan-tab {
+      padding: 9px 14px; border-radius: 9px; border: 1px solid #cbd5e1; background: #fff; cursor: pointer; font-weight: 600;
+    }
+    .plan-tab.active { background: #0f766e; color: #fff; border-color: #0f766e; }
+    .form-grid { display: grid; gap: 12px; margin: 16px 0; }
+    .form-grid input, .form-grid textarea {
+      width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 9px; font-size: 14px;
+    }
+    .summary-box {
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; margin: 14px 0; font-size: 14px;
+    }
+    .order-confirm {
+      background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; border-radius: 12px; padding: 14px; margin-top: 14px; font-size: 13.5px;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">LP</span>
+        <span>LeadPulse Concierge</span>
+      </a>
+      <a class="btn btn-outline" href="index.html">← Back to Live Demos</a>
+    </div>
+  </header>
+
+  <main class="pay-wrap">
+    <div class="banner-gate" id="mode-banner">
+      <strong>Pre-Activation / Owner Verification Mode:</strong> Official PayPal merchant destination configured for
+      <code>gabriel.a.s.branco09@gmail.com</code>. Live checkout activates once owner connects PayPal Payment Links or REST Client ID.
+    </div>
+
+    <div class="card">
+      <h1 style="font-size: 26px; margin-bottom: 8px;">Order &amp; PayPal Checkout</h1>
+      <p style="color:#475569; margin-top:0;">Select your package, enter your website URL, and continue via Official PayPal Checkout or Invoice Request.</p>
+
+      <div class="plan-tabs" id="plan-tabs">
+        <button type="button" class="plan-tab" data-plan="pilot">48h Pilot Setup — €390</button>
+        <button type="button" class="plan-tab" data-plan="retainer">Care Retainer — €149/mo</button>
+        <button type="button" class="plan-tab" data-plan="agency">Agency White-Label — €290</button>
+      </div>
+
+      <div class="summary-box" id="plan-summary"></div>
+
+      <form class="form-grid" id="order-form">
+        <input required name="company" placeholder="Business or Agency Name" />
+        <input required type="url" name="website" placeholder="Website URL (https://...)" />
+        <input required type="email" name="email" placeholder="Work Email (for onboarding &amp; PayPal receipt)" />
+        <textarea name="notes" rows="2" placeholder="Optional: Priority services, languages (EN/PT), or booking link"></textarea>
+        <button type="submit" class="btn btn-primary" id="checkout-btn">Generate Official PayPal Order / Invoice Request</button>
+      </form>
+
+      <div id="paypal-button-container"></div>
+      <div class="order-confirm" id="order-result" hidden></div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const PLANS = {
+        pilot: {
+          title: "48h Pilot Setup (One-Time)",
+          amount: "390.00",
+          currency: "EUR",
+          desc: "Custom-trained 24/7 concierge widget, zero third-party branding, 1-line install, plus Schema.org JSON-LD & llms.txt.",
+          livePaymentLink: "" // Owner inserts verified PayPal Payment Link URL after login
+        },
+        retainer: {
+          title: "Care & Optimization Retainer (Monthly)",
+          amount: "149.00",
+          currency: "EUR",
+          desc: "Managed hosting, monthly FAQ/pricing updates, and monthly lead-capture reporting.",
+          livePaymentLink: ""
+        },
+        agency: {
+          title: "Agency White-Label First Site Setup",
+          amount: "290.00",
+          currency: "EUR",
+          desc: "White-labeled client deployment under your agency brand (€99/site/mo ongoing).",
+          livePaymentLink: ""
+        }
+      };
+
+      const PAYPAL_CONFIG = {
+        merchantEmail: "gabriel.a.s.branco09@gmail.com",
+        mode: "PRE_ACTIVATION", // Switch to "LIVE" once owner adds livePaymentLink or PayPal REST Client ID
+        clientId: ""
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      let currentPlan = PLANS[params.get("plan")] ? params.get("plan") : "pilot";
+
+      const tabs = document.querySelectorAll(".plan-tab");
+      const summaryEl = document.getElementById("plan-summary");
+      const resultEl = document.getElementById("order-result");
+
+      function renderPlan() {
+        tabs.forEach((b) => b.classList.toggle("active", b.dataset.plan === currentPlan));
+        const p = PLANS[currentPlan];
+        summaryEl.innerHTML = `<strong>${p.title}</strong> — <span style="color:#0f766e;font-weight:800">€${p.amount} ${p.currency}</span><br/><span style="color:#475569">${p.desc}</span>`;
+      }
+
+      tabs.forEach((b) =>
+        b.addEventListener("click", () => {
+          currentPlan = b.dataset.plan;
+          renderPlan();
+        })
+      );
+
+      document.getElementById("order-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const p = PLANS[currentPlan];
+        const orderRef = "LP-" + Date.now().toString(36).toUpperCase();
+        const payload = {
+          reference: orderRef,
+          plan: p.title,
+          amount: `${p.amount} ${p.currency}`,
+          merchant: PAYPAL_CONFIG.merchantEmail,
+          company: fd.get("company"),
+          website: fd.get("website"),
+          email: fd.get("email"),
+          notes: fd.get("notes")
+        };
+
+        if (PAYPAL_CONFIG.mode === "LIVE" && p.livePaymentLink) {
+          window.location.href = p.livePaymentLink;
+          return;
+        }
+
+        resultEl.hidden = false;
+        resultEl.innerHTML = `
+          <strong>Order Reference Created: ${orderRef}</strong><br/>
+          Package: ${payload.plan} (${payload.amount})<br/>
+          Merchant PayPal Destination: <code>${payload.merchant}</code><br/>
+          <em>Live PayPal redirection is pending owner activation of PayPal Payment Links / SDK Client ID.</em>
+          <pre style="white-space:pre-wrap;margin-top:8px;background:#fff;padding:8px;border-radius:8px;border:1px solid #cbd5e1;">${JSON.stringify(payload, null, 2)}</pre>
+        `;
+      });
+
+      renderPlan();
+    })();
+  </script>
+</body>
+</html>

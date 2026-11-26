@@ -1,25 +1,25 @@
-# PayPal Revenue Integration Guide (Official Services)
+# PayPal Revenue Integration Guide (Verified Account State)
 
-- **Destination Account:** `gabriel.a.s.branco09@gmail.com`
-- **Status:** Pre-Activation (awaiting owner authentication & approval)
-- **Fee Benchmark (EEA EUR):** ~2.9%–3.4% + €0.35 per PayPal wallet transaction (~1.2% + €0.35 for eligible guest cards)
+- **Account:** `gabriel.a.s.branco09@gmail.com` (Merchant ID: `Y28SWQPWPNVGQ`)
+- **Verified Status (2026-11-26):** Account is currently a **Personal** PayPal account (not Business / "Conta Comercial"), and PayPal is showing a primary-email re-confirmation prompt in Profile Settings.
+  - Because it is a Personal account, `paypal.com/ncp/links/create` ("Payment Links and Buttons") and `developer.paypal.com` **Live API credentials** are gated by PayPal on upgrading to **PayPal Business (free)** — Sandbox credentials are active (`Viewing sandbox API credentials`).
+  - **PayPal.Me** (`https://www.paypal.com/paypalme/my/landing?entry=marketing`) IS available on Personal accounts once you pick your `@handle`.
 
-## Fastest Activation Path (Zero Backend Cost, 3 Minutes)
-1. Owner logs directly into `https://www.paypal.com` (`gabriel.a.s.branco09@gmail.com`) in their own browser.
-2. Navigate to **Pay & Get Paid → Payment Links and Buttons** (or `https://www.paypal.com/buttons`).
-3. Create 3 official Payment Links / Subscriptions:
-   - **Pilot Setup (One-Time):** `€390.00 EUR` — "LeadPulse Concierge — 48h Pilot Setup"
-   - **Care Retainer (Subscription):** `€149.00 EUR / month` — "LeadPulse Concierge — Care & Optimization"
-   - **Agency White-Label First Site (One-Time):** `€290.00 EUR` — "LeadPulse Agency White-Label Setup"
-4. Paste the generated `https://www.paypal.com/ncp/payment/...` URLs into `web/pay.html` (`PLANS[...].livePaymentLink`) and set `PAYPAL_CONFIG.mode = "LIVE"`.
+## Two Zero-Cost Paths to Live PayPal Checkout
 
-## Optional REST API / Checkout v2 Integration
-If dynamic per-client invoicing or automated webhook verification is needed later:
-1. Log into `https://developer.paypal.com` with `gabriel.a.s.branco09@gmail.com`.
-2. Create a Live App to obtain a `CLIENT_ID` (safe for client-side PayPal JS SDK) and server-side `CLIENT_SECRET` (never stored in client code).
-3. Use `POST /v2/checkout/orders` and `POST /v2/checkout/orders/{id}/capture` for automated verification and ledger updates into `REVENUE.md`.
+### Path A — Free PayPal.Me Link (Fastest, Works on Current Personal Account)
+1. Open `https://www.paypal.com/paypalme/my/landing?entry=marketing` (while signed in).
+2. Click **Começar**, choose your PayPal.Me handle (e.g., `gabrielbranco`), and confirm.
+3. Paste `https://paypal.me/<your-handle>/29EUR` (and `/390EUR`, `/290EUR`) into `web/pay.html` (`PLANS[...].livePaymentLink`) and set `PAYPAL_CONFIG.mode = "LIVE"`.
 
-## Security Rules
-- Never share passwords or 2FA codes in chat.
-- Never transfer, withdraw, or modify payout/banking settings autonomously.
-- Live payments remain disabled (`PRE_ACTIVATION`) until explicit owner approval.
+### Path B — Free Upgrade to PayPal Business (Unlocks Official Payment Links, Subscriptions & Live Checkout SDK)
+1. At `https://www.paypal.com/ncp/links/create`, click **Criar conta Comercial** (free upgrade on PayPal).
+2. Create Payment Links / Subscriptions for:
+   - **€29.00 EUR** — LeadPulse White-Label Pro Kit
+   - **€390.00 EUR** — 48h Pilot Setup
+   - **€149.00 EUR / mo** — Care & Optimization Retainer
+   - **€290.00 EUR** — Agency White-Label First Site
+3. Paste the generated `https://www.paypal.com/ncp/payment/...` URLs into `web/pay.html` and redeploy (`firebase deploy --only hosting`).
+
+## Marketplace Payouts (No Business Upgrade Required)
+- **Payhip**, **Gumroad**, and **Apify Store** send payouts straight to `gabriel.a.s.branco09@gmail.com` once connected in each platform's Payout settings.

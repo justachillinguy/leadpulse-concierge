@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "app-test-3f023"
+  },
+  "targets": {
+    "app-test-3f023": {
+      "hosting": {
+        "leadpulse-concierge-app": [
+          "leadpulse-concierge-app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

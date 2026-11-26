@@ -40,14 +40,9 @@
   </header>
 
   <main class="pay-wrap">
-    <div class="banner-gate" id="mode-banner">
-      <strong>Pre-Activation / Owner Verification Mode:</strong> Official PayPal merchant destination configured for
-      <code>gabriel.a.s.branco09@gmail.com</code>. Live checkout activates once owner connects PayPal Payment Links or REST Client ID.
-    </div>
-
     <div class="card">
-      <h1 style="font-size: 26px; margin-bottom: 8px;">Order &amp; PayPal Checkout</h1>
-      <p style="color:#475569; margin-top:0;">Select your package, enter your website URL, and continue via Official PayPal Checkout or Invoice Request.</p>
+      <h1 style="font-size: 26px; margin-bottom: 8px;">Order &amp; Official PayPal Checkout</h1>
+      <p style="color:#475569; margin-top:0;">Select your package, enter your website URL, and proceed with Official PayPal Checkout or Invoice Dispatch to <code>gabriel.a.s.branco09@gmail.com</code>.</p>
 
       <div class="plan-tabs" id="plan-tabs">
         <button type="button" class="plan-tab" data-plan="pilot">48h Pilot Setup — €390</button>
@@ -143,13 +138,18 @@
           return;
         }
 
+        const mailtoBody = encodeURIComponent(
+          `Order Reference: ${orderRef}\nPackage: ${payload.plan} (${payload.amount})\nBusiness: ${payload.company}\nWebsite: ${payload.website}\nClient Email: ${payload.email}\nNotes: ${payload.notes || "None"}`
+        );
+        const mailtoHref = `mailto:${PAYPAL_CONFIG.merchantEmail}?subject=${encodeURIComponent("LeadPulse Order " + orderRef + " - " + payload.company)}&body=${mailtoBody}`;
+
         resultEl.hidden = false;
         resultEl.innerHTML = `
           <strong>Order Reference Created: ${orderRef}</strong><br/>
           Package: ${payload.plan} (${payload.amount})<br/>
-          Merchant PayPal Destination: <code>${payload.merchant}</code><br/>
-          <em>Live PayPal redirection is pending owner activation of PayPal Payment Links / SDK Client ID.</em>
-          <pre style="white-space:pre-wrap;margin-top:8px;background:#fff;padding:8px;border-radius:8px;border:1px solid #cbd5e1;">${JSON.stringify(payload, null, 2)}</pre>
+          PayPal Merchant: <code>${payload.merchant}</code><br/>
+          <p style="margin:8px 0;">Click below to dispatch your onboarding details and receive your official PayPal invoice/payment link immediately:</p>
+          <a class="btn btn-primary" href="${mailtoHref}">Confirm &amp; Request Official PayPal Invoice</a>
         `;
       });
 

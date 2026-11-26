@@ -45,6 +45,7 @@
       <p style="color:#475569; margin-top:0;">Select your package, enter your website URL, and proceed with Official PayPal Checkout or Invoice Dispatch to <code>gabriel.a.s.branco09@gmail.com</code>.</p>
 
       <div class="plan-tabs" id="plan-tabs">
+        <button type="button" class="plan-tab" data-plan="prokit">Self-Serve Pro Kit — €29</button>
         <button type="button" class="plan-tab" data-plan="pilot">48h Pilot Setup — €390</button>
         <button type="button" class="plan-tab" data-plan="retainer">Care Retainer — €149/mo</button>
         <button type="button" class="plan-tab" data-plan="agency">Agency White-Label — €290</button>
@@ -68,6 +69,13 @@
   <script>
     (function () {
       const PLANS = {
+        prokit: {
+          title: "White-Label Pro Kit + Bulk Auditor (Digital Download)",
+          amount: "29.00",
+          currency: "EUR",
+          desc: "Unbranded widget.js source, CLI bulk website auditor & llms.txt/Schema.org generator, plus commercial resale license.",
+          livePaymentLink: ""
+        },
         pilot: {
           title: "48h Pilot Setup (One-Time)",
           amount: "390.00",

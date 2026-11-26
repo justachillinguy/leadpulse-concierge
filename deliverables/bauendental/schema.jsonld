@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Bauen Dental Clinic",
+  "url": "https://bauendental.pt/",
+  "description": "Plano Bauen Dental - Plano Bauen Dental",
+  "areaServed": "Lisboa, Portugal",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "adesao.plano@bauendental.pt"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "211 384 773 Rede fixa Nacional"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Seja Prestador"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Seja Agente autorizado"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "ÁREA CLIENTES"
+      }
+    }
+  ],
+  "email": "adesao.plano@bauendental.pt",
+  "telephone": "211 384 773 Rede fixa Nacional"
+}

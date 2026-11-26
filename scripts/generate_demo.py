@@ -96,6 +96,42 @@ PROSPECTS = [
         "avg_ticket_eur": 2000,
         "booking_note": "Lisboa e Porto (Partner White-Label Demo)",
     },
+    {
+        "slug": "lisbondentalclinic",
+        "name": "Lisbon Dental Clinic",
+        "url": "https://lisbondentalclinic.com/",
+        "category": "Cosmetic Dentistry & Implants",
+        "lang": "en",
+        "avg_ticket_eur": 1600,
+        "booking_note": "Lisbon, Portugal",
+    },
+    {
+        "slug": "bauendental",
+        "name": "Bauen Dental Clinic",
+        "url": "https://bauendental.pt/",
+        "category": "Implantology & Oral Surgery",
+        "lang": "pt",
+        "avg_ticket_eur": 1500,
+        "booking_note": "Lisboa, Portugal",
+    },
+    {
+        "slug": "studiospencer",
+        "name": "Studio Spencer",
+        "url": "https://studiospencer.com/",
+        "category": "Shopify & WordPress Agency",
+        "lang": "en",
+        "avg_ticket_eur": 3500,
+        "booking_note": "Manchester, UK (Partner White-Label Demo)",
+    },
+    {
+        "slug": "pixelkicks",
+        "name": "Pixel Kicks",
+        "url": "https://pixelkicks.co.uk/",
+        "category": "Shopify & WordPress Agency",
+        "lang": "en",
+        "avg_ticket_eur": 3500,
+        "booking_note": "Manchester, UK (Partner White-Label Demo)",
+    },
 ]
 
 BAD_EMAIL_EXTS = (".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif", ".css", ".js")

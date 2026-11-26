@@ -1,0 +1,15 @@
+# Lisbon Dental Clinic
+
+> Lisbon Dental Clinic – Dr. Pedro Rabaço
+
+## Core Services
+- Missão, Visão e Valores
+- Condições
+- Diagnóstico
+- Branqueamento Dentário
+- Cirurgia oral
+
+## Location & Contact
+- Location: Lisbon, Portugal
+- Website: https://lisbondentalclinic.com/
+- Email: info@lisbondentalclinic.com

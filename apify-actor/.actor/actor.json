@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "ai-search-lead-auditor",
+  "title": "AI Search (GEO) & Lead-Capture Website Auditor",
+  "description": "Bulk-audits websites for /llms.txt validity, robots.txt AI crawler access (GPTBot, ClaudeBot, PerplexityBot), Schema.org JSON-LD types, and 24/7 chat/WhatsApp/form lead-capture gaps.",
+  "version": "1.0",
+  "meta": {
+    "templateId": "python-start"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile"
+}

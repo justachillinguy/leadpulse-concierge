@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Pixel Kicks",
+  "url": "https://pixelkicks.co.uk/",
+  "description": "Manchester based Shopify Partner and WordPress agency creating high-performing ecommerce websites that increase revenue and support long-term growth.",
+  "areaServed": "Manchester, UK (Partner White-Label Demo)",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Shopify Development"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Shopify Marketing"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Shopify Migration Services"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Shopify Plus Agency"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Shopify Retainer Services"
+      }
+    }
+  ],
+  "telephone": "0161 713 1700"
+}

@@ -1,0 +1,11 @@
+# COMMERCIAL LICENSE — LeadPulse White-Label Pro Kit
+
+Thank you for purchasing the **LeadPulse White-Label Pro Kit**.
+
+## Permitted Uses
+- Install the unbranded `widget.js` concierge and generated `llms.txt` / `schema.jsonld` files on unlimited websites you own or manage for paying clients.
+- Remove or customize all branding for client/agency white-label deployments.
+- Modify source HTML/CSS/JS/Python files (`generate_demo.py`, `widget.js`, `generator.html`).
+
+## Restrictions
+- You may not redistribute, resell, or publish the raw Pro Kit ZIP itself as a competing template pack or free public repository.

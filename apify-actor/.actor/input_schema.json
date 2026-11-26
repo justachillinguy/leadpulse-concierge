@@ -1,0 +1,25 @@
+{
+  "title": "AI Search & Lead-Capture Auditor Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Website URLs to Audit",
+      "type": "array",
+      "description": "List of target business or competitor URLs (https://...).",
+      "editor": "stringList",
+      "prefill": [
+        "https://www.dciporto.pt/",
+        "https://www.wheelt.pt/"
+      ]
+    },
+    "timeoutSeconds": {
+      "title": "Request Timeout (seconds)",
+      "type": "integer",
+      "default": 10,
+      "minimum": 3,
+      "maximum": 30
+    }
+  },
+  "required": ["urls"]
+}

@@ -24,3 +24,13 @@
   - Bundled `18,088`-byte commercial kit + `products/MARKETPLACE_GUIDE.md` ready for Payhip (instant PayPal) & Gumroad Discover.
 - **[DONE] GitHub Organic SEO:**
   - Added SEO `README.md`, topics (`llms-txt`, `schema-org`, `ai-automation`, `lead-generation`, `micro-saas`), and homepage link to `https://leadpulse-concierge-app.web.app/generator.html`.
+
+## 2026-11-26 — Cycle 4: Live PayPal.Me Checkout, SEO/llms.txt Self-Audit & Wave 3 Dispatched
+- **[DONE] Live PayPal.Me Checkout (`https://paypal.me/gabrielbranco726`):**
+  - Verified `https://paypal.me/gabrielbranco726/29EUR` returns HTTP 200.
+  - Updated `web/pay.html` to `PAYPAL_CONFIG.mode = "LIVE"` with all 4 tiers (`€29`, `€390`, `€149/mo`, `€290`), deployed to Firebase Hosting (`https://leadpulse-concierge-app.web.app`) and GitHub Pages, and verified via Playwright (`ERRORS: []`).
+- **[DONE] Own-Site SEO & AI-Search Readiness:**
+  - Published `web/robots.txt`, `web/sitemap.xml`, `web/llms.txt`, and `SoftwareApplication` JSON-LD on `web/index.html`.
+  - Self-audited `https://leadpulse-concierge-app.web.app/` with `apify-actor/src/main.py` (`readiness_score=80`, `has_llms_txt=True`, `schema_types=["SoftwareApplication"]`, `blocked_ai_bots=[]`).
+- **[DONE] Outreach Wave 3:**
+  - Sent Wave 3 batch; Gmail `Sent` count grew from `111` to `115` (**10 emails confirmed sent total** across Waves 1–3).

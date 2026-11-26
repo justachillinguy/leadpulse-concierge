@@ -1,15 +1,10 @@
 # NEXT ACTIONS
 
-1. **Owner 1-Click PayPal Login (`gabriel.a.s.branco09@gmail.com`):**
-   - Complete the PayPal device-unlock/MFA prompt on the already-open PayPal tab (`https://www.paypal.com/ncp/links/create`), generate the 3 Payment Links (€390 Pilot, €149/mo Retainer, €290 Agency Setup), and paste them into `web/pay.html` (`mode: "LIVE"`) -> `firebase deploy --only hosting`.
-2. **Monitor Inbox & Close First Paying Client:**
-   - Check `gabriel.a.s.branco09@gmail.com` for replies from the 6 contacted clinics/agencies (`dciporto`, `iron`, `clinicamacro`, `wheelt`, `digiland`, `mydigital`) and send tailored `PROPOSAL_TEMPLATE.md` + PayPal link/invoice upon reply.
-3. **Dispatch Wave 2 Retry + Wave 3:**
-   - Send personalized outreach to `info@codedr.co`, `info@lisbondentalclinic.com`, `adesao.plano@bauendental.pt`, `hello@studiospencer.com`, and `hello@pixelkicks.co.uk`.
-4. **Verify Lid Power Option in Windows UI (if closing lid on battery/Modern Standby):**
-   - Confirm in Windows Control Panel (`Power Options -> Choose what closing the lid does`) that `Plugged in` is set to `Do nothing` before leaving the laptop closed unattended.
-
-## Zero-Outreach Passive Channels (Ready for 1-Minute Account Connections to `gabriel.a.s.branco09@gmail.com`)
-5. **Connect Payhip (`https://payhip.com`)** -> Set payout to `gabriel.a.s.branco09@gmail.com`, upload `products/leadpulse-pro-kit.zip` at €29 (instant PayPal payouts, 5% fee).
-6. **Connect Gumroad Discover (`https://gumroad.com`)** -> Set payout to `gabriel.a.s.branco09@gmail.com`, upload `products/leadpulse-pro-kit.zip` at €29 and enable Discover marketplace traffic.
-7. **Publish Apify Actor (`https://console.apify.com`)** -> Connect `justachillinguy/leadpulse-concierge` (`apify-actor/`), publish to Apify Store ($19/mo or $0.005/audit), and set payout to PayPal (`gabriel.a.s.branco09@gmail.com`, 0% Apify payout fee).
+1. **Monitor PayPal (`gabriel.a.s.branco09@gmail.com` / `paypal.me/gabrielbranco726`) & Gmail Replies:**
+   - Track incoming replies from the 10 sent outreach emails and deliver Pro Kits (`products/leadpulse-pro-kit.zip`) or 48h installs upon payment. Record any verified transactions in `REVENUE.md`.
+2. **Optional 2-Minute Marketplace Listings (User-Gated Signups Only):**
+   - **Payhip (`https://payhip.com/auth/register`):** Solve CAPTCHA, connect `gabriel.a.s.branco09@gmail.com`, upload `products/leadpulse-pro-kit.zip` at €29.
+   - **Gumroad (`https://gumroad.com/signup`):** Sign in with `gabriel.a.s.branco09@gmail.com`, upload `products/leadpulse-pro-kit.zip` at €29, enable Gumroad Discover.
+   - **Apify Store (`https://console.apify.com/sign-in`):** Sign in with GitHub (`justachillinguy`), link `justachillinguy/leadpulse-concierge` (`apify-actor/`), publish at $19/mo or $0.005/audit, set PayPal payout to `gabriel.a.s.branco09@gmail.com`.
+3. **Scale Inbound & Direct Pipeline Toward €100,000:**
+   - Publish Wave 4 clinic/agency audits (UK/US/EU), share the free `https://leadpulse-concierge-app.web.app/generator.html` tool on Hacker News (Show HN) / Reddit / Indie communities once approved, and convert agency partners into multi-site recurring MRR.

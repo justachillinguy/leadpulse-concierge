@@ -1,0 +1,165 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // This security rules file assumes the following data structures:
+    //
+    // Collection: orders
+    // Document ID: {orderId} (auto-generated or client-assigned unique ID)
+    // Access: Unauthenticated write-only intake (create only); zero client read/update/delete.
+    //         Owner reads and manages orders via Firebase Console or Admin SDK.
+    // Fields:
+    //   - reference: string (required, 4..32 chars) - Client checkout order reference (e.g. LP-...)
+    //   - plan: string (required, in ['prokit', 'pilot', 'retainer', 'agency']) - Selected package slug
+    //   - planTitle: string (required, 4..120 chars) - Human-readable package title
+    //   - amountEur: number (required, > 0 && <= 5000) - Package amount in EUR
+    //   - company: string (required, 2..120 chars) - Customer business or agency name
+    //   - website: string (required, 8..300 chars, starts with 'http://' or 'https://') - Customer website URL
+    //   - email: string (required, 5..160 chars, valid email containing '@' and '.') - Delivery/onboarding email
+    //   - notes: string (required, 0..1000 chars) - Optional customer notes (empty string if none)
+    //   - status: string (required, must equal 'pending_paypal') - Initial order status
+    //   - createdAt: timestamp (required, must equal request.time) - Server-assigned creation timestamp
+    //
+    // Collection: leads
+    // Document ID: {leadId} (auto-generated or client-assigned unique ID)
+    // Access: Unauthenticated write-only intake (create only); zero client read/update/delete.
+    //         Owner reads and manages leads via Firebase Console or Admin SDK.
+    // Fields:
+    //   - business: string (required, 2..120 chars) - Target business name configured on widget
+    //   - demoSlug: string (required, 1..60 chars) - Demo or widget configuration slug
+    //   - service: string (required, 2..120 chars) - Requested service or treatment
+    //   - timeframe: string (required, 2..80 chars) - Preferred contact/booking timeframe
+    //   - name: string (required, 2..100 chars) - Lead full name
+    //   - contact: string (required, 4..160 chars) - Lead phone number or email
+    //   - sourceUrl: string (required, 0..300 chars) - Originating page/business URL (empty string if unavailable)
+    //   - createdAt: timestamp (required, must equal request.time) - Server-assigned creation timestamp
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    // Validate required fields exist
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    // Validate that the document contains only the allowed fields
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // Validate exact schema (both required and allowed fields)
+    function hasExactFields(fields) {
+      return hasOnlyAllowedFields(fields) && hasRequiredFields(fields);
+    }
+
+    // Validate string length on a field in request.resource.data
+    function validStringLength(data, field, minLen, maxLen) {
+      return data[field] is string &&
+        data[field].size() >= minLen &&
+        data[field].size() <= maxLen;
+    }
+
+    // Validate URL format (must start with https:// or http://)
+    function isValidUrl(url) {
+      return url is string &&
+        (url.matches("^https://.*") || url.matches("^http://.*"));
+    }
+
+    // Validate email format (non-whitespace local@domain.tld, contains '@' and '.')
+    function isValidEmail(email) {
+      return email is string &&
+        email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$");
+    }
+
+    // Validate server-assigned creation timestamp
+    function isServerTimestamp(ts) {
+      return ts is timestamp && ts == request.time;
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidOrder(data) {
+      let allowedPlans = ['prokit', 'pilot', 'retainer', 'agency'];
+      let requiredFields = [
+        'reference',
+        'plan',
+        'planTitle',
+        'amountEur',
+        'company',
+        'website',
+        'email',
+        'notes',
+        'status',
+        'createdAt'
+      ];
+
+      return hasExactFields(requiredFields) &&
+        validStringLength(data, 'reference', 4, 32) &&
+        data.plan is string && data.plan in allowedPlans &&
+        validStringLength(data, 'planTitle', 4, 120) &&
+        data.amountEur is number && data.amountEur > 0 && data.amountEur <= 5000 &&
+        validStringLength(data, 'company', 2, 120) &&
+        validStringLength(data, 'website', 8, 300) && isValidUrl(data.website) &&
+        validStringLength(data, 'email', 5, 160) && isValidEmail(data.email) &&
+        validStringLength(data, 'notes', 0, 1000) &&
+        data.status is string && data.status == 'pending_paypal' &&
+        isServerTimestamp(data.createdAt);
+    }
+
+    function isValidLead(data) {
+      let requiredFields = [
+        'business',
+        'demoSlug',
+        'service',
+        'timeframe',
+        'name',
+        'contact',
+        'sourceUrl',
+        'createdAt'
+      ];
+
+      return hasExactFields(requiredFields) &&
+        validStringLength(data, 'business', 2, 120) &&
+        validStringLength(data, 'demoSlug', 1, 60) &&
+        validStringLength(data, 'service', 2, 120) &&
+        validStringLength(data, 'timeframe', 2, 80) &&
+        validStringLength(data, 'name', 2, 100) &&
+        validStringLength(data, 'contact', 4, 160) &&
+        validStringLength(data, 'sourceUrl', 0, 300) &&
+        isServerTimestamp(data.createdAt);
+    }
+
+    // ===============================================================
+    // Collection Rules
+    // ===============================================================
+
+    // 24/7 unauthenticated checkout intake (web/pay.html)
+    // Write-only for clients to prevent any PII leakage or order tampering.
+    match /orders/{orderId} {
+      allow create: if isValidOrder(request.resource.data);
+      allow read, update, delete: if false;
+    }
+
+    // 24/7 unauthenticated widget lead intake (web/widget.js)
+    // Write-only for clients to prevent any PII leakage or lead tampering.
+    match /leads/{leadId} {
+      allow create: if isValidLead(request.resource.data);
+      allow read, update, delete: if false;
+    }
+
+    // Default deny all other paths and subcollections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

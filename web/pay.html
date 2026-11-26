@@ -39,7 +39,7 @@
   <main class="pay-wrap">
     <div class="card">
       <h1 style="font-size: 26px; margin-bottom: 8px;">Order &amp; Instant PayPal Checkout</h1>
-      <p style="color:#475569; margin-top:0;">Select your package, enter your website details, and complete payment directly via PayPal (<code>gabrielbranco726</code> / <code>gabriel.a.s.branco09@gmail.com</code>).</p>
+      <p style="color:#475569; margin-top:0;">Orders are logged 24/7 in the cloud and routed directly to PayPal (<code>gabrielbranco726</code> / <code>gabriel.a.s.branco09@gmail.com</code>).</p>
 
       <div class="plan-tabs" id="plan-tabs">
         <button type="button" class="plan-tab" data-plan="prokit">Self-Serve Pro Kit — €29</button>
@@ -51,10 +51,10 @@
       <div class="summary-box" id="plan-summary"></div>
 
       <form class="form-grid" id="order-form">
-        <input required name="company" placeholder="Business or Agency Name" />
-        <input required type="url" name="website" placeholder="Website URL (https://...)" />
-        <input required type="email" name="email" placeholder="Work Email (for Pro Kit delivery / onboarding)" />
-        <textarea name="notes" rows="2" placeholder="Optional: Priority services, languages (EN/PT), or booking link"></textarea>
+        <input required minlength="2" maxlength="120" name="company" placeholder="Business or Agency Name" />
+        <input required type="url" maxlength="300" name="website" placeholder="Website URL (https://...)" />
+        <input required type="email" maxlength="160" name="email" placeholder="Work Email (for Pro Kit delivery / onboarding)" />
+        <textarea name="notes" maxlength="1000" rows="2" placeholder="Optional: Priority services, languages (EN/PT), or booking link"></textarea>
         <button type="submit" class="btn btn-primary" id="checkout-btn">Proceed to PayPal Checkout</button>
       </form>
 
@@ -62,102 +62,134 @@
     </div>
   </main>
 
-  <script>
-    (function () {
-      const PLANS = {
-        prokit: {
-          title: "White-Label Pro Kit + Bulk Auditor (Digital Download)",
-          amount: "29.00",
-          currency: "EUR",
-          desc: "Unbranded widget.js source, CLI bulk website auditor & llms.txt/Schema.org generator, plus commercial resale license.",
-          livePaymentLink: "https://paypal.me/gabrielbranco726/29EUR"
-        },
-        pilot: {
-          title: "48h Pilot Setup (One-Time)",
-          amount: "390.00",
-          currency: "EUR",
-          desc: "Custom-trained 24/7 concierge widget, zero third-party branding, 1-line install, plus Schema.org JSON-LD & llms.txt.",
-          livePaymentLink: "https://paypal.me/gabrielbranco726/390EUR"
-        },
-        retainer: {
-          title: "Care & Optimization Retainer (Monthly)",
-          amount: "149.00",
-          currency: "EUR",
-          desc: "Managed hosting, monthly FAQ/pricing updates, and monthly lead-capture reporting.",
-          livePaymentLink: "https://paypal.me/gabrielbranco726/149EUR"
-        },
-        agency: {
-          title: "Agency White-Label First Site Setup",
-          amount: "290.00",
-          currency: "EUR",
-          desc: "White-labeled client deployment under your agency brand (€99/site/mo ongoing).",
-          livePaymentLink: "https://paypal.me/gabrielbranco726/290EUR"
-        }
-      };
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
-      const PAYPAL_CONFIG = {
-        merchantEmail: "gabriel.a.s.branco09@gmail.com",
-        paypalMe: "https://paypal.me/gabrielbranco726",
-        mode: "LIVE"
-      };
+    const fbApp = initializeApp({
+      projectId: "leadpulse-concierge-2026",
+      appId: "1:346787789629:web:b7dc570a0637b8671ae354",
+      apiKey: "AIzaSyCJl9EUM2BRkgNHwDCGiHLIgfuBkXwwMHY",
+      authDomain: "leadpulse-concierge-2026.firebaseapp.com",
+      storageBucket: "leadpulse-concierge-2026.firebasestorage.app",
+      messagingSenderId: "346787789629"
+    });
+    const db = getFirestore(fbApp);
 
-      const params = new URLSearchParams(window.location.search);
-      let currentPlan = PLANS[params.get("plan")] ? params.get("plan") : "prokit";
+    const PLANS = {
+      prokit: {
+        title: "White-Label Pro Kit + Bulk Auditor (Digital Download)",
+        amount: "29.00",
+        amountEur: 29,
+        currency: "EUR",
+        desc: "Unbranded widget.js source, CLI bulk website auditor & llms.txt/Schema.org generator, plus commercial resale license.",
+        livePaymentLink: "https://paypal.me/gabrielbranco726/29EUR"
+      },
+      pilot: {
+        title: "48h Pilot Setup (One-Time)",
+        amount: "390.00",
+        amountEur: 390,
+        currency: "EUR",
+        desc: "Custom-trained 24/7 concierge widget, zero third-party branding, 1-line install, plus Schema.org JSON-LD & llms.txt.",
+        livePaymentLink: "https://paypal.me/gabrielbranco726/390EUR"
+      },
+      retainer: {
+        title: "Care & Optimization Retainer (Monthly)",
+        amount: "149.00",
+        amountEur: 149,
+        currency: "EUR",
+        desc: "Managed hosting, monthly FAQ/pricing updates, and monthly lead-capture reporting.",
+        livePaymentLink: "https://paypal.me/gabrielbranco726/149EUR"
+      },
+      agency: {
+        title: "Agency White-Label First Site Setup",
+        amount: "290.00",
+        amountEur: 290,
+        currency: "EUR",
+        desc: "White-labeled client deployment under your agency brand (€99/site/mo ongoing).",
+        livePaymentLink: "https://paypal.me/gabrielbranco726/290EUR"
+      }
+    };
 
-      const tabs = document.querySelectorAll(".plan-tab");
-      const summaryEl = document.getElementById("plan-summary");
-      const resultEl = document.getElementById("order-result");
-      const btnEl = document.getElementById("checkout-btn");
+    const PAYPAL_CONFIG = {
+      merchantEmail: "gabriel.a.s.branco09@gmail.com",
+      paypalMe: "https://paypal.me/gabrielbranco726",
+      mode: "LIVE"
+    };
 
-      function renderPlan() {
-        tabs.forEach((b) => b.classList.toggle("active", b.dataset.plan === currentPlan));
-        const p = PLANS[currentPlan];
-        summaryEl.innerHTML = `<strong>${p.title}</strong> — <span style="color:#0f766e;font-weight:800">€${p.amount} ${p.currency}</span><br/><span style="color:#475569">${p.desc}</span>`;
-        btnEl.textContent = `Pay €${p.amount} via PayPal`;
+    const params = new URLSearchParams(window.location.search);
+    let currentPlan = PLANS[params.get("plan")] ? params.get("plan") : "prokit";
+
+    const tabs = document.querySelectorAll(".plan-tab");
+    const summaryEl = document.getElementById("plan-summary");
+    const resultEl = document.getElementById("order-result");
+    const btnEl = document.getElementById("checkout-btn");
+
+    function renderPlan() {
+      tabs.forEach((b) => b.classList.toggle("active", b.dataset.plan === currentPlan));
+      const p = PLANS[currentPlan];
+      summaryEl.innerHTML = `<strong>${p.title}</strong> — <span style="color:#0f766e;font-weight:800">€${p.amount} ${p.currency}</span><br/><span style="color:#475569">${p.desc}</span>`;
+      btnEl.textContent = `Pay €${p.amount} via PayPal`;
+    }
+
+    tabs.forEach((b) =>
+      b.addEventListener("click", () => {
+        currentPlan = b.dataset.plan;
+        renderPlan();
+      })
+    );
+
+    document.getElementById("order-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      btnEl.disabled = true;
+      btnEl.textContent = "Saving order & preparing PayPal...";
+      const fd = new FormData(e.target);
+      const p = PLANS[currentPlan];
+      const orderRef = "LP-" + Date.now().toString(36).toUpperCase();
+      const company = String(fd.get("company") || "").trim();
+      const website = String(fd.get("website") || "").trim();
+      const email = String(fd.get("email") || "").trim();
+      const notes = String(fd.get("notes") || "").trim();
+
+      let cloudStatus = "Saved to 24/7 Cloud Order Queue";
+      try {
+        await addDoc(collection(db, "orders"), {
+          reference: orderRef,
+          plan: currentPlan,
+          planTitle: p.title,
+          amountEur: p.amountEur,
+          company,
+          website,
+          email,
+          notes,
+          status: "pending_paypal",
+          createdAt: serverTimestamp()
+        });
+      } catch (err) {
+        cloudStatus = "Order reference generated (cloud sync retry via email backup)";
+        console.warn("Firestore order write:", err);
       }
 
-      tabs.forEach((b) =>
-        b.addEventListener("click", () => {
-          currentPlan = b.dataset.plan;
-          renderPlan();
-        })
+      const mailtoBody = encodeURIComponent(
+        `Order Reference: ${orderRef}\nPackage: ${p.title} (€${p.amount} ${p.currency})\nBusiness: ${company}\nWebsite: ${website}\nClient Email: ${email}\nNotes: ${notes || "None"}`
       );
+      const mailtoHref = `mailto:${PAYPAL_CONFIG.merchantEmail}?subject=${encodeURIComponent("LeadPulse Paid Order " + orderRef + " - " + company)}&body=${mailtoBody}`;
 
-      document.getElementById("order-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const fd = new FormData(e.target);
-        const p = PLANS[currentPlan];
-        const orderRef = "LP-" + Date.now().toString(36).toUpperCase();
-        const payload = {
-          reference: orderRef,
-          plan: p.title,
-          amount: `${p.amount} ${p.currency}`,
-          merchant: PAYPAL_CONFIG.merchantEmail,
-          company: fd.get("company"),
-          website: fd.get("website"),
-          email: fd.get("email"),
-          notes: fd.get("notes")
-        };
-
-        const mailtoBody = encodeURIComponent(
-          `Order Reference: ${orderRef}\nPackage: ${payload.plan} (${payload.amount})\nBusiness: ${payload.company}\nWebsite: ${payload.website}\nClient Email: ${payload.email}\nNotes: ${payload.notes || "None"}`
-        );
-        const mailtoHref = `mailto:${PAYPAL_CONFIG.merchantEmail}?subject=${encodeURIComponent("LeadPulse Paid Order " + orderRef + " - " + payload.company)}&body=${mailtoBody}`;
-
-        resultEl.hidden = false;
-        resultEl.innerHTML = `
-          <strong>Order Reference Created: ${orderRef}</strong><br/>
-          Package: ${payload.plan} (<strong>€${p.amount} ${p.currency}</strong>)<br/>
-          Include reference <code>${orderRef}</code> in your PayPal note so we deliver/onboard immediately to <strong>${payload.email}</strong>.
-          <div class="btn-row">
-            <a class="btn btn-primary" id="live-paypal-link" href="${p.livePaymentLink}" target="_blank" rel="noopener">Open PayPal Checkout (€${p.amount}) →</a>
-            <a class="btn btn-outline" href="${mailtoHref}">Send Onboarding Details</a>
-          </div>
-        `;
-      });
-
+      resultEl.hidden = false;
+      resultEl.innerHTML = `
+        <strong>Order Reference Created: ${orderRef}</strong> · <span>${cloudStatus}</span><br/>
+        Package: ${p.title} (<strong>€${p.amount} ${p.currency}</strong>)<br/>
+        Include reference <code>${orderRef}</code> in your PayPal note so delivery/onboarding starts for <strong>${email}</strong>.
+        <div class="btn-row">
+          <a class="btn btn-primary" id="live-paypal-link" href="${p.livePaymentLink}" target="_blank" rel="noopener">Open PayPal Checkout (€${p.amount}) →</a>
+          <a class="btn btn-outline" href="${mailtoHref}">Optional Email Copy</a>
+        </div>
+      `;
+      btnEl.disabled = false;
       renderPlan();
-    })();
+    });
+
+    renderPlan();
   </script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+# LeadPulse Concierge
+
+> Free llms.txt, Schema.org JSON-LD, and 24/7 website lead-capture concierge widget generator for clinics, service businesses, and digital agencies.
+
+## Tools & Products
+- Free Generator (llms.txt + Schema.org + Embeddable Widget): https://leadpulse-concierge-app.web.app/generator.html
+- White-Label Pro Kit (€29 one-time): https://leadpulse-concierge-app.web.app/pay.html?plan=prokit
+- 48-Hour Done-For-You Setup (€390 one-time): https://leadpulse-concierge-app.web.app/pay.html?plan=pilot
+- Agency White-Label Partner Plan (€290 setup + €99/site/mo): https://leadpulse-concierge-app.web.app/pay.html?plan=agency
+- Open-Source Repository & Apify Auditor: https://github.com/justachillinguy/leadpulse-concierge
+
+## Contact & Payments
+- Email: gabriel.a.s.branco09@gmail.com
+- PayPal: https://paypal.me/gabrielbranco726

@@ -117,3 +117,77 @@ Would you like me to send over the 1-line install snippet to test on your site?
 
 Best regards,  
 Gabriel Branco · LeadPulse Concierge
+
+
+---
+
+## 7. CodeDR (`info@codedr.co`) — Wave 2 Partner Agency Offer (EN)
+**Subject:** White-label 24/7 AI lead concierge for CodeDR clients
+
+Hi CodeDR team,
+
+I checked `codedr.co` and built a quick live preview showing how an embeddable 24/7 AI lead-qualification concierge works on your own service flow (plus a ready-to-drop `/llms.txt` file):
+👉 https://leadpulse-concierge-app.web.app/?demo=codedr
+
+We partner with digital agencies on a White-Label basis (€290/site setup + €99/site/mo, zero third-party branding) so you can add recurring AI automation retainers for your clients at €249–€399/mo without building or maintaining any infra.
+
+Open to a quick 10-minute look this week?
+
+Best regards,  
+Gabriel Branco · LeadPulse Concierge
+
+---
+
+## 8. myDigital (`mail@mydigital.pt`) — Wave 2 Partner Agency Offer (PT)
+**Subject:** Parceria White-Label: Concierge IA 24/7 para clientes da myDigital
+
+Olá equipa da myDigital,
+
+Ao visitar `mydigital.pt`, vi que já têm uma base sólida em marketing digital e branding em Lisboa e Porto (incluindo Schema.org; preparei também um `/llms.txt` base para o vosso domínio).
+
+Para agências que querem gerar receita recorrente adicional nos clientes atuais, disponibilizamos um **Concierge IA 24/7 de Qualificação & Pré-Marcação** em regime **White-Label** (€290 setup + €99/mês por site, 100% com a marca da myDigital).
+
+Podem testar a demo já configurada para a myDigital aqui:
+👉 https://leadpulse-concierge-app.web.app/?demo=mydigital
+
+Faz sentido falarmos 10 minutos esta semana?
+
+Cumprimentos,  
+Gabriel Branco · LeadPulse Concierge
+
+
+---
+
+## 9. Lisbon Dental Clinic (`info@lisbondentalclinic.com`) — Wave 3 Clinic Offer (EN)
+**Subject:** Built a 24/7 booking & treatment concierge preview for Lisbon Dental Clinic
+
+Hi Lisbon Dental Clinic team,
+
+I reviewed `lisbondentalclinic.com` and noticed two immediate ways to capture more high-ticket implant and cosmetic inquiries outside reception hours:
+1. Missing Schema.org JSON-LD (`ld+json=0`) and `/llms.txt` for Google & AI assistant recommendations.
+2. No 24/7 interactive patient intake & consultation qualifier for evening/weekend visitors.
+
+I built a working live preview already tailored to your clinic:
+👉 https://leadpulse-concierge-app.web.app/?demo=lisbondentalclinic
+
+We install it in 48 hours with zero third-party branding for **€390 one-time** (+ **€149/mo** optional care, including your custom `schema.jsonld` and `llms.txt`). Want me to send the 1-line install snippet?
+
+Best regards,  
+Gabriel Branco · LeadPulse Concierge
+
+---
+
+## 10. Bauen Dental Clinic (`adesao.plano@bauendental.pt`) — Wave 3 Clinic Offer (PT)
+**Subject:** Demo interativa 24/7 para pré-marcações na Bauen Dental Clinic
+
+Olá equipa da Bauen Dental Clinic,
+
+Ao analisar `bauendental.pt`, reparei que já têm uma boa base com Schema.org, mas ainda falta um **assistente interativo 24/7** que responda logo a dúvidas sobre implantologia/cirurgia oral e recolha pedidos de marcação fora de horas (além de um `/llms.txt` para recomendações em ChatGPT/Perplexity).
+
+Criei uma pré-visualização funcional com os vossos serviços:
+👉 https://leadpulse-concierge-app.web.app/?demo=bauendental
+
+Instalação em 48h com 1 linha de código e zero marca externa (**€390 setup** + **€149/mês** opcional). Posso enviar o `llms.txt` que já gerei gratuitamente?
+
+Cumprimentos,  
+Gabriel Branco · LeadPulse Concierge

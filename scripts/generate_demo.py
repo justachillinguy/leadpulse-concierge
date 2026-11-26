@@ -78,6 +78,24 @@ PROSPECTS = [
         "avg_ticket_eur": 2000,
         "booking_note": "Portugal (Partner White-Label Demo)",
     },
+    {
+        "slug": "codedr",
+        "name": "CodeDR",
+        "url": "https://codedr.co/",
+        "category": "Digital Product & Web Agency",
+        "lang": "en",
+        "avg_ticket_eur": 3000,
+        "booking_note": "Partner White-Label Demo",
+    },
+    {
+        "slug": "mydigital",
+        "name": "myDigital",
+        "url": "https://www.mydigital.pt/",
+        "category": "Marketing & Communication Agency",
+        "lang": "pt",
+        "avg_ticket_eur": 2000,
+        "booking_note": "Lisboa e Porto (Partner White-Label Demo)",
+    },
 ]
 
 BAD_EMAIL_EXTS = (".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif", ".css", ".js")

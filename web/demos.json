@@ -509,6 +509,172 @@
           "a": "Digiland atende em Portugal (Partner White-Label Demo). Contacto público: geral@digiland.pt."
         }
       ]
+    },
+    {
+      "slug": "codedr",
+      "name": "CodeDR",
+      "url": "https://codedr.co/",
+      "http_status": 200,
+      "category": "Digital Product & Web Agency",
+      "lang": "en",
+      "avg_ticket_eur": 3000,
+      "booking_note": "Partner White-Label Demo",
+      "public_email": "info@codedr.co",
+      "public_phone": "+351920267226",
+      "services": [
+        "Services",
+        "Website Design",
+        "UI/UX Design",
+        "Web Development",
+        "Brand Identity"
+      ],
+      "audit": {
+        "readiness_score": 55,
+        "has_schema_ld": true,
+        "has_real_llms_txt": false,
+        "has_whatsapp_link": false,
+        "has_ai_concierge": false,
+        "gaps": [
+          "No 24/7 automated lead qualifier (after-hours visitors leave uncaptured)",
+          "Missing valid /llms.txt for ChatGPT & Perplexity visibility"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "service",
+            "services",
+            "treatment",
+            "treatments",
+            "offer",
+            "do you do"
+          ],
+          "q": "What services / treatments do you offer?",
+          "a": "At CodeDR, core offerings include: Services, Website Design, UI/UX Design, Web Development, Brand Identity. Tell me what you are looking for and I can pre-qualify your inquiry in 30 seconds."
+        },
+        {
+          "keywords": [
+            "price",
+            "pricing",
+            "cost",
+            "how much",
+            "quote",
+            "finance",
+            "fee"
+          ],
+          "q": "How much does it cost / payment options?",
+          "a": "Exact pricing depends on your initial assessment and scope. Leave your goals and contact details here and CodeDR will reply with tailored options."
+        },
+        {
+          "keywords": [
+            "book",
+            "appointment",
+            "consultation",
+            "schedule",
+            "call",
+            "availability"
+          ],
+          "q": "How can I book a consultation?",
+          "a": "You can submit a priority consultation request right here in 3 quick steps (24/7), or reach us via info@codedr.co."
+        },
+        {
+          "keywords": [
+            "where",
+            "location",
+            "address",
+            "contact",
+            "phone",
+            "email"
+          ],
+          "q": "Where are you located?",
+          "a": "CodeDR serves clients at Partner White-Label Demo. Direct contact: info@codedr.co."
+        }
+      ]
+    },
+    {
+      "slug": "mydigital",
+      "name": "myDigital",
+      "url": "https://www.mydigital.pt/",
+      "http_status": 200,
+      "category": "Marketing & Communication Agency",
+      "lang": "pt",
+      "avg_ticket_eur": 2000,
+      "booking_note": "Lisboa e Porto (Partner White-Label Demo)",
+      "public_email": "mail@mydigital.pt",
+      "public_phone": "",
+      "services": [
+        "Idioma atual: pt",
+        "Ver o site em en (Inglês)",
+        "Serviços",
+        "Recrutamento",
+        "Resolução de Litígios"
+      ],
+      "audit": {
+        "readiness_score": 80,
+        "has_schema_ld": true,
+        "has_real_llms_txt": false,
+        "has_whatsapp_link": false,
+        "has_ai_concierge": true,
+        "gaps": [
+          "Sem ficheiro /llms.txt válido para visibilidade em ChatGPT/Perplexity"
+        ]
+      },
+      "qa": [
+        {
+          "keywords": [
+            "serviço",
+            "servicos",
+            "tratamento",
+            "tratamentos",
+            "especialidade",
+            "fazem",
+            "servicos"
+          ],
+          "q": "Que serviços / tratamentos oferecem?",
+          "a": "Na myDigital, disponibilizamos áreas como: Idioma atual: pt, Ver o site em en (Inglês), Serviços, Recrutamento, Resolução de Litígios. Posso ajudar a pré-qualificar o seu pedido para agendamento em Lisboa e Porto (Partner White-Label Demo)."
+        },
+        {
+          "keywords": [
+            "preço",
+            "preco",
+            "preços",
+            "valor",
+            "custa",
+            "orçamento",
+            "orcamento",
+            "pagamento"
+          ],
+          "q": "Qual é o valor ou orçamento?",
+          "a": "O valor exato depende da avaliação inicial do seu caso. Posso recolher os seus dados em 30 segundos para que a equipa da myDigital envie uma estimativa ou agende avaliação."
+        },
+        {
+          "keywords": [
+            "marcar",
+            "marcação",
+            "consulta",
+            "agendar",
+            "reunião",
+            "horario",
+            "horário",
+            "disponibilidade"
+          ],
+          "q": "Como posso marcar consulta / reunião?",
+          "a": "Pode iniciar a pré-marcação aqui mesmo em 3 passos (24/7), indicando o serviço pretendido e o melhor horário, ou contactar diretamente (mail@mydigital.pt)."
+        },
+        {
+          "keywords": [
+            "onde",
+            "morada",
+            "localização",
+            "localizacao",
+            "contacto",
+            "telefone",
+            "email"
+          ],
+          "q": "Onde ficam localizados e contactos?",
+          "a": "myDigital atende em Lisboa e Porto (Partner White-Label Demo). Contacto público: mail@mydigital.pt."
+        }
+      ]
     }
   ]
 }

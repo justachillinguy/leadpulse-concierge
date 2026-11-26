@@ -1,0 +1,16 @@
+# CodeDR
+
+> We are a leading web design and development agency in UK, Ireland and Europe specializing in creating high-performance digital experiences that elevate brands.
+
+## Core Services
+- Services
+- Website Design
+- UI/UX Design
+- Web Development
+- Brand Identity
+
+## Location & Contact
+- Location: Partner White-Label Demo
+- Website: https://codedr.co/
+- Email: info@codedr.co
+- Phone: +351920267226

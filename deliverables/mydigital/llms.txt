@@ -1,0 +1,15 @@
+# myDigital
+
+> A myDigital é a sua agência de marketing e comunicação em Lisboa. Estratégia, branding, marketing digital, relações públicas e desenvolvimento web para marcas com visão. Fale connosco.
+
+## Core Services
+- Idioma atual: pt
+- Ver o site em en (Inglês)
+- Serviços
+- Recrutamento
+- Resolução de Litígios
+
+## Location & Contact
+- Location: Lisboa e Porto (Partner White-Label Demo)
+- Website: https://www.mydigital.pt/
+- Email: mail@mydigital.pt

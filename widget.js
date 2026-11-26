@@ -118,6 +118,11 @@
           background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 10px;
           border-radius: 10px; font-size: 12.5px; margin-top: 6px;
         }
+        .lp-powered {
+          text-align: center; font-size: 11px; color: #64748b; padding: 5px 10px;
+          background: #f8fafc; border-top: 1px solid #f1f5f9;
+        }
+        .lp-powered a { color: #0f766e; text-decoration: none; font-weight: 600; }
       </style>
       <div class="lp-shell" role="region" aria-label="${config.name} Concierge">
         <div class="lp-head">
@@ -131,6 +136,7 @@
           <input id="lp-text" type="text" placeholder="${t.placeholder}" autocomplete="off" />
           <button type="submit">${t.send}</button>
         </form>
+        ${config.poweredBy ? '<div class="lp-powered">Free widget by <a href="https://leadpulse-concierge-app.web.app/generator.html" target="_blank" rel="noopener">LeadPulse Concierge</a></div>' : ''}
       </div>
     `;
 

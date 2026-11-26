@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free llms.txt, Schema.org &amp; AI Concierge Generator — LeadPulse</title>
+  <meta name="description" content="Free instant generator for llms.txt, Schema.org JSON-LD, and a 24/7 website lead-capture widget. Zero signup required." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .gen-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 26px; align-items: start; margin-top: 24px; }
+    .gen-form { display: grid; gap: 12px; }
+    .gen-form label { display: grid; gap: 5px; font-size: 13.5px; font-weight: 600; }
+    .gen-form input, .gen-form select, .gen-form textarea {
+      width: 100%; padding: 9px 11px; border: 1px solid #cbd5e1; border-radius: 9px; font-size: 14px; font-family: inherit;
+    }
+    .code-box {
+      background: #0f172a; color: #e2e8f0; padding: 12px; border-radius: 10px; font-size: 12px;
+      overflow-x: auto; max-height: 190px; white-space: pre-wrap; margin: 8px 0 14px;
+    }
+    .out-head { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+    .copy-btn {
+      padding: 5px 10px; border-radius: 7px; border: 1px solid #cbd5e1; background: #fff; font-size: 12px; font-weight: 600; cursor: pointer;
+    }
+    .upsell-bar {
+      background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 12px; padding: 14px; margin-top: 16px;
+    }
+    @media (max-width: 900px) { .gen-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">LP</span>
+        <span>LeadPulse Concierge</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#demo">Live Demos</a>
+        <a href="generator.html"><strong>Free Generator</strong></a>
+        <a href="index.html#pricing">Pricing</a>
+        <a class="btn btn-sm" href="pay.html?plan=prokit">Get Pro Kit (€29)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 38px 20px 64px;">
+    <span class="pill">100% Free Self-Serve Tool · Instant Export</span>
+    <h1 style="font-size: clamp(1.7rem, 3vw, 2.5rem); margin-bottom: 8px;">Free <code>llms.txt</code>, Schema.org &amp; 24/7 AI Concierge Generator</h1>
+    <p class="lead" style="margin-bottom: 18px;">Generate ready-to-paste AI search files and an interactive 24/7 lead-capture widget for any business website in 10 seconds.</p>
+
+    <div class="gen-grid">
+      <div class="card">
+        <h2 style="margin-top:0; font-size: 20px;">1. Business Details</h2>
+        <form class="gen-form" id="gen-form">
+          <label>Business Name
+            <input required id="g-name" value="Smile Studio Lisboa" />
+          </label>
+          <label>Website URL
+            <input required id="g-url" type="url" value="https://example-clinic.pt" />
+          </label>
+          <label>Industry / Schema Type
+            <select id="g-type">
+              <option value="MedicalClinic">Dental / Medical / Aesthetic Clinic</option>
+              <option value="ProfessionalService">Agency / Consulting / Legal</option>
+              <option value="LocalBusiness">Real Estate / Home Services / Local</option>
+              <option value="SoftwareApplication">SaaS / Software Product</option>
+            </select>
+          </label>
+          <label>Language
+            <select id="g-lang">
+              <option value="en">English (EN)</option>
+              <option value="pt">Português (PT)</option>
+            </select>
+          </label>
+          <label>Core Services (comma-separated)
+            <textarea id="g-services" rows="2">Dental Implants, Invisalign, Veneers, Emergency Care</textarea>
+          </label>
+          <label>City / Service Area
+            <input id="g-city" value="Lisbon, Portugal" />
+          </label>
+          <label>Public Contact Email
+            <input id="g-email" value="hello@example-clinic.pt" />
+          </label>
+          <label>Short Description
+            <input id="g-desc" value="Modern cosmetic and implant dental clinic offering same-week consultations." />
+          </label>
+          <button type="submit" class="btn btn-primary">Generate Files &amp; Live Widget</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 18px;">
+          <h2 style="margin-top:0; font-size: 20px;">2. Live Interactive Preview (Free Tier)</h2>
+          <div id="gen-widget-mount" class="widget-mount"></div>
+          <div class="upsell-bar">
+            <strong>Want to remove the "Powered by LeadPulse" badge + unlock bulk auditing &amp; commercial agency rights?</strong>
+            <div class="cta-row" style="margin: 10px 0 0;">
+              <a class="btn btn-primary" href="pay.html?plan=prokit">Download White-Label Pro Kit (€29 one-time)</a>
+              <a class="btn btn-outline" href="pay.html?plan=pilot">Or Done-For-You 48h Install (€390)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin-top:0; font-size: 20px;">3. Ready-to-Deploy Code</h2>
+
+          <div class="out-head">
+            <strong><code>/llms.txt</code> (Upload to site root)</strong>
+            <button type="button" class="copy-btn" data-target="out-llms">Copy</button>
+          </div>
+          <pre class="code-box" id="out-llms"></pre>
+
+          <div class="out-head">
+            <strong>Schema.org JSON-LD (Paste in <code>&lt;head&gt;</code>)</strong>
+            <button type="button" class="copy-btn" data-target="out-schema">Copy</button>
+          </div>
+          <pre class="code-box" id="out-schema"></pre>
+
+          <div class="out-head">
+            <strong>Free Widget Embed Snippet (Paste before <code>&lt;/body&gt;</code>)</strong>
+            <button type="button" class="copy-btn" data-target="out-embed">Copy</button>
+          </div>
+          <pre class="code-box" id="out-embed"></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="widget.js"></script>
+  <script>
+    (function () {
+      function generate() {
+        const name = document.getElementById("g-name").value.trim() || "My Business";
+        const url = document.getElementById("g-url").value.trim() || "https://example.com";
+        const schemaType = document.getElementById("g-type").value;
+        const lang = document.getElementById("g-lang").value;
+        const services = document.getElementById("g-services").value
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean)
+          .slice(0, 6);
+        const city = document.getElementById("g-city").value.trim() || "Global";
+        const email = document.getElementById("g-email").value.trim();
+        const desc = document.getElementById("g-desc").value.trim();
+
+        const llms = [
+          `# ${name}`,
+          ``,
+          `> ${desc}`,
+          ``,
+          `## Core Services`,
+          ...services.map((s) => `- ${s}`),
+          ``,
+          `## Location & Contact`,
+          `- Area: ${city}`,
+          `- Website: ${url}`,
+          email ? `- Email: ${email}` : "",
+        ].filter((line) => line !== undefined).join("\n").trim();
+
+        const schemaObj = {
+          "@context": "https://schema.org",
+          "@type": schemaType,
+          name,
+          url,
+          description: desc,
+          areaServed: city,
+          makesOffer: services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s } })),
+        };
+        if (email) schemaObj.email = email;
+
+        const qa = lang === "pt"
+          ? [
+              { keywords: ["serviço", "servicos", "tratamento", "fazem"], q: "Que serviços oferecem?", a: `Na ${name}, disponibilizamos: ${services.join(", ")}. Posso pré-qualificar o seu pedido em 30 segundos.` },
+              { keywords: ["preço", "preco", "valor", "orçamento"], q: "Qual é o valor?", a: `O valor depende do seu caso. Deixe o seu contacto aqui e a equipa da ${name} envia estimativa rapidamente.` },
+              { keywords: ["onde", "contacto", "morada", "email"], q: "Onde ficam e contactos?", a: `${name} atende em ${city}. Email: ${email || url}.` },
+            ]
+          : [
+              { keywords: ["service", "services", "offer", "treatment"], q: "What services do you offer?", a: `At ${name}, core services include: ${services.join(", ")}. Click above to book or request a quote in 30 seconds.` },
+              { keywords: ["price", "cost", "quote", "fee"], q: "How much does it cost?", a: `Pricing depends on scope. Leave your inquiry details above and ${name} will send tailored pricing.` },
+              { keywords: ["where", "location", "contact", "email"], q: "Where are you located?", a: `${name} serves ${city}. Contact: ${email || url}.` },
+            ];
+
+        const cfg = { name, url, lang, services, qa, poweredBy: true };
+        const embedSnippet = `<div id="leadpulse-mount"></div>\n<script src="https://leadpulse-concierge-app.web.app/widget.js"><\/script>\n<script>\nLeadPulse.init(${JSON.stringify(cfg, null, 2)}, document.getElementById("leadpulse-mount"));\n<\/script>`;
+
+        document.getElementById("out-llms").textContent = llms;
+        document.getElementById("out-schema").textContent = `<script type="application/ld+json">\n${JSON.stringify(schemaObj, null, 2)}\n<\/script>`;
+        document.getElementById("out-embed").textContent = embedSnippet;
+
+        window.LeadPulse.init(cfg, document.getElementById("gen-widget-mount"));
+      }
+
+      document.getElementById("gen-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        generate();
+      });
+
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const txt = document.getElementById(btn.dataset.target).textContent;
+          try {
+            await navigator.clipboard.writeText(txt);
+            btn.textContent = "Copied!";
+            setTimeout(() => (btn.textContent = "Copy"), 1500);
+          } catch (_) {}
+        });
+      });
+
+      generate();
+    })();
+  </script>
+</body>
+</html>

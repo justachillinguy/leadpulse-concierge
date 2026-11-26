@@ -34,3 +34,10 @@
   - Self-audited `https://leadpulse-concierge-app.web.app/` with `apify-actor/src/main.py` (`readiness_score=80`, `has_llms_txt=True`, `schema_types=["SoftwareApplication"]`, `blocked_ai_bots=[]`).
 - **[DONE] Outreach Wave 3:**
   - Sent Wave 3 batch; Gmail `Sent` count grew from `111` to `115` (**10 emails confirmed sent total** across Waves 1–3).
+
+## 2026-11-26 — Cycle 5: 24/7 Cloud-Only Order & Lead Capture (PC-Off Ready)
+- **[DONE] Dedicated Cloud Firestore Backend (`leadpulse-concierge-2026`, `eur3`):**
+  - Created isolated Firebase project `leadpulse-concierge-2026` + Web App `1:346787789629:web:b7dc570a0637b8671ae354` + `(default)` Cloud Firestore database.
+  - Authored strict write-only `firestore.rules` via `firestore-rules-author` (`orders/{orderId}` & `leads/{leadId}`: exact schema, length, URL/email, enum & `serverTimestamp()` enforcement; zero client reads).
+  - Updated `web/pay.html` & `web/app.js` to persist every checkout order & concierge lead directly to Cloud Firestore 24/7 even when the local PC is powered off, deployed to `https://leadpulse-concierge-app.web.app` & GitHub Pages.
+  - **Live Playwright E2E Verified:** Confirmed real order (`LP-MWY738MM`) and lead (`DCI Porto -> E2E Cloud Lead`) saved to Cloud Firestore with `CONSOLE_ERRS: []` and `FIRESTORE_WARNS: []`.
